@@ -1,0 +1,33 @@
+<div class="timer-wrapper">
+  <div class="timer-outer">
+    <div class="timer-circle" (click)="timer.toggle()">
+
+      <svg class="progress-svg" viewBox="0 0 366 366">
+        <circle
+          class="track"
+          cx="183" cy="183"
+          [attr.r]="radius"
+        />
+        <circle
+          class="progress-arc"
+          cx="183" cy="183"
+          [attr.r]="radius"
+          [style.stroke]="timer.accentColor()"
+          [style.stroke-dasharray]="circumference"
+          [style.stroke-dashoffset]="strokeDashoffset()"
+        />
+      </svg>
+
+      <div class="timer-content">
+        <span class="time-display">{{ timer.displayTime() }}</span>
+        <button
+          class="action-btn"
+          (click)="timer.toggle(); $event.stopPropagation()"
+        >
+          {{ timer.isRunning() ? 'PAUSE' : 'START' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

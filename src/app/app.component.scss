@@ -1,0 +1,43 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px 40px;
+  gap: 55px;
+
+  @media (max-width: 480px) {
+    padding: 32px 24px;
+    gap: 40px;
+  }
+}
+
+header .logo {
+  color: #d7e0ff;
+  font-size: 32px;
+  font-weight: 700;
+  opacity: 0.9;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 1; }
+}

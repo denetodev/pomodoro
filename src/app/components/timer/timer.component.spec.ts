@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModeTabs } from './mode-tabs';
+import { Timer } from './timer.component';
 
-describe('ModeTabs', () => {
-  let component: ModeTabs;
-  let fixture: ComponentFixture<ModeTabs>;
+describe('Timer', () => {
+  let component: Timer;
+  let fixture: ComponentFixture<Timer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ModeTabs]
+      imports: [Timer]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModeTabs);
+    fixture = TestBed.createComponent(Timer);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,29 @@
+.tabs {
+  display: flex;
+  background: #161932;
+  border-radius: 31px;
+  padding: 8px;
+
+  .tab {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 27px;
+    background: transparent;
+    color: rgba(#d7e0ff, 0.4);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    white-space: nowrap;
+
+    &.active {
+      background: var(--accent);
+      color: #161932;
+    }
+
+    &:hover:not(.active) {
+      color: rgba(#d7e0ff, 0.85);
+    }
+  }
+}

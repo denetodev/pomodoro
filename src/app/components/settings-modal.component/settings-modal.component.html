@@ -1,0 +1,90 @@
+@if (isOpen()) {
+<div class="overlay" (click)="close()">
+    <div class="modal" (click)="$event.stopPropagation()">
+
+        <div class="modal-header">
+            <h2 class="modal-title">Settings</h2>
+            <button class="close-btn" (click)="close()">&#x2715;</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- TIME -->
+        <div class="section">
+            <h3 class="section-title">TIME (MINUTES)</h3>
+            <div class="time-grid">
+
+                <label class="time-label">
+                    <span>pomodoro</span>
+                    <div class="time-input-wrapper">
+                        <input type="number" [value]="draft().pomodoro"
+                            (change)="updateMinutes('pomodoro', +$any($event.target).value)" min="1" max="99" />
+                        <div class="time-arrows">
+                            <button (click)="updateMinutes('pomodoro', draft().pomodoro + 1)">&#9650;</button>
+                            <button (click)="updateMinutes('pomodoro', draft().pomodoro - 1)">&#9660;</button>
+                        </div>
+                    </div>
+                </label>
+
+                <label class="time-label">
+                    <span>short break</span>
+                    <div class="time-input-wrapper">
+                        <input type="number" [value]="draft().shortBreak"
+                            (change)="updateMinutes('shortBreak', +$any($event.target).value)" min="1" max="99" />
+                        <div class="time-arrows">
+                            <button (click)="updateMinutes('shortBreak', draft().shortBreak + 1)">&#9650;</button>
+                            <button (click)="updateMinutes('shortBreak', draft().shortBreak - 1)">&#9660;</button>
+                        </div>
+                    </div>
+                </label>
+
+                <label class="time-label">
+                    <span>long break</span>
+                    <div class="time-input-wrapper">
+                        <input type="number" [value]="draft().longBreak"
+                            (change)="updateMinutes('longBreak', +$any($event.target).value)" min="1" max="99" />
+                        <div class="time-arrows">
+                            <button (click)="updateMinutes('longBreak', draft().longBreak + 1)">&#9650;</button>
+                            <button (click)="updateMinutes('longBreak', draft().longBreak - 1)">&#9660;</button>
+                        </div>
+                    </div>
+                </label>
+
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- FONT -->
+        <div class="section-row">
+            <h3 class="section-title">FONT</h3>
+            <div class="font-options">
+                @for (font of fonts; track font.value) {
+                <button class="font-btn" [class.active]="draft().font === font.value" [style.font-family]="font.style"
+                    (click)="setFont(font.value)">
+                    Aa
+                </button>
+                }
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- COLOR -->
+        <div class="section-row">
+            <h3 class="section-title">COLOR</h3>
+            <div class="color-options">
+                @for (color of colors; track color.value) {
+                <button class="color-btn" [style.background]="color.hex" [class.active]="draft().color === color.value"
+                    (click)="setColor(color.value)">
+                    @if (draft().color === color.value) { &#10003; }
+                </button>
+                }
+            </div>
+        </div>
+
+        <button class="apply-btn" (click)="apply()">Apply</button>
+
+    </div>
+</div>
+}

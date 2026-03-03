@@ -1,0 +1,11 @@
+<nav class="tabs">
+  @for (tab of tabs; track tab.value) {
+    <button
+      class="tab"
+      [class.active]="timer.mode() === tab.value"
+      (click)="select(tab.value)"
+    >
+      {{ tab.label }}
+    </button>
+  }
+</nav>

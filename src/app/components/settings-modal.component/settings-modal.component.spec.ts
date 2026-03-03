@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Timer } from './timer';
+import { SettingsModal } from './settings-modal.component';
 
-describe('Timer', () => {
-  let component: Timer;
-  let fixture: ComponentFixture<Timer>;
+describe('SettingsModal', () => {
+  let component: SettingsModal;
+  let fixture: ComponentFixture<SettingsModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Timer]
+      imports: [SettingsModal]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Timer);
+    fixture = TestBed.createComponent(SettingsModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

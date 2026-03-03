@@ -1,0 +1,106 @@
+.timer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-outer {
+    width: 410px;
+    height: 410px;
+    border-radius: 50%;
+    background: linear-gradient(315deg, #2e325a, #0e112a);
+    box-shadow:
+        -50px -50px 100px rgba(60, 67, 122, 0.6),
+        50px 50px 100px rgba(14, 17, 42, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 480px) {
+        width: 312px;
+        height: 312px;
+        box-shadow: none;
+    }
+}
+
+.timer-circle {
+    position: relative;
+    width: 366px;
+    height: 366px;
+    border-radius: 50%;
+    background: #161932;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+
+    @media (max-width: 480px) {
+        width: 268px;
+        height: 268px;
+    }
+}
+
+.progress-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+
+    .track {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.04);
+        stroke-width: 11;
+    }
+
+    .progress-arc {
+        fill: none;
+        stroke-width: 11;
+        stroke-linecap: round;
+        transform-origin: center;
+        transform: rotate(-90deg);
+        transition: stroke-dashoffset 1s linear;
+    }
+}
+
+.timer-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.time-display {
+    font-family: var(--font-body);
+    font-size: 100px;
+    font-weight: 700;
+    color: #d7e0ff;
+    letter-spacing: -5px;
+    line-height: 1;
+
+    @media (max-width: 480px) {
+        font-size: 80px;
+        letter-spacing: -4px;
+    }
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 13px;
+    color: #d7e0ff;
+    cursor: pointer;
+    padding-left: 13px;
+    transition: color 0.2s;
+
+    &:hover {
+        color: var(--accent);
+    }
+}
