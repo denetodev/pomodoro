@@ -41,3 +41,9 @@ main {
 
   &:hover { opacity: 1; }
 }
+
+footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

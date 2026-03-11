@@ -1,0 +1,52 @@
+<div class="ambient-wrapper">
+
+  <!-- Botão principal -->
+  <button
+    class="ambient-btn"
+    [class.active]="audio.ambientSound() !== 'none'"
+    (click)="togglePanel()"
+    [title]="labels[audio.ambientSound()]"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        d="M9 18V5l12-2v13M9 18c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-2c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/>
+    </svg>
+  </button>
+
+  <!-- Painel de sons -->
+  @if (isOpen) {
+    <div class="ambient-panel">
+      <p class="panel-title">Som Ambiente</p>
+
+      <div class="sound-list">
+        @for (sound of sounds; track sound.value) {
+          <button
+            class="sound-item"
+            [class.active]="audio.ambientSound() === sound.value"
+            (click)="selectSound(sound.value)"
+          >
+            <span class="sound-icon">{{ sound.icon }}</span>
+            <span class="sound-label">{{ labels[sound.value] }}</span>
+          </button>
+        }
+      </div>
+
+      <!-- Volume (só aparece se tiver som ativo) -->
+      @if (audio.ambientSound() !== 'none') {
+        <div class="volume-control">
+          <span class="volume-icon">🔈</span>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            [value]="audio.ambientVolume() * 100"
+            (input)="onVolumeChange($event)"
+          />
+          <span class="volume-icon">🔊</span>
+        </div>
+      }
+
+    </div>
+  }
+
+</div>

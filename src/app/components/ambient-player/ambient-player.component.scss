@@ -1,0 +1,129 @@
+.ambient-wrapper {
+  position: relative;
+}
+
+.ambient-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: rgba(#d7e0ff, 0.5);
+  transition: color 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: rgba(#d7e0ff, 0.9);
+  }
+
+  &.active {
+    color: var(--accent);
+    opacity: 1;
+  }
+}
+
+.ambient-panel {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2d3163;
+  border-radius: 16px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  animation: fadeUp 0.2s ease;
+  z-index: 50;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0);   }
+}
+
+.panel-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(#d7e0ff, 0.5);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.sound-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sound-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  text-align: left;
+
+  &:hover {
+    background: rgba(#d7e0ff, 0.08);
+  }
+
+  &.active {
+    background: rgba(#d7e0ff, 0.12);
+
+    .sound-label {
+      color: var(--accent);
+    }
+  }
+}
+
+.sound-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.sound-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(#d7e0ff, 0.7);
+  transition: color 0.2s;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(#d7e0ff, 0.1);
+
+  input[type='range'] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(#d7e0ff, 0.2);
+    outline: none;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+    }
+  }
+}
+
+.volume-icon {
+  font-size: 14px;
+}
